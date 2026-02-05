@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCT LSC 1503 - LPA 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .form-group {
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        .instructions {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .instructions h3 {
+            color: #1e3a8a;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        .instructions p {
+            color: #374151;
+            line-height: 1.6;
+        }
+        .question {
+            margin-bottom: 35px;
+        }
+        .question-number {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .question-text {
+            font-size: 1.05em;
+            color: #1f2937;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+        }
+        .print-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+        .print-btn:active {
+            transform: translateY(0);
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .header {
+                background: #1e3a8a;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .button-container {
+                display: none;
+            }
+            textarea {
+                border: 1px solid #000;
+                min-height: 100px;
+            }
+            .question {
+                page-break-inside: avoid;
+            }
+        }
+        @media (max-width: 600px) {
+            .student-info {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>HCT LSC 1503 - LPA 3</h1>
+            <p>Learning Portfolio Artifact 3</p>
+        </div>
+        <div class="content">
+            <div class="student-info">
+                <div class="form-group">
+                    <label for="studentName">Student Name</label>
+                    <input type="text" id="studentName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" placeholder="e.g., H0034567">
+                </div>
+            </div>
+            <div class="instructions">
+                <h3>Instructions</h3>
+                <p>Reflect on your learning this week and the project you completed. Think about your experiences, what you accomplished, and what you'd like to explore in the future.</p>
+                <p style="margin-top: 10px;">Please answer the following questions thoughtfully. Take time, attention, and care with your answers.</p>
+            </div>
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">1</span>
+                    What did you do this week?
+                </div>
+                <textarea id="q1" placeholder="Type your answer here..."></textarea>
+            </div>
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">2</span>
+                    What project did you complete?
+                </div>
+                <textarea id="q2" placeholder="Type your answer here..."></textarea>
+            </div>
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">3</span>
+                    How did you feel about your project? Did you enjoy doing it?
+                </div>
+                <textarea id="q3" placeholder="Type your answer here..."></textarea>
+            </div>
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">4</span>
+                    What other projects would you like to do for the rest of the semester?
+                </div>
+                <textarea id="q4" placeholder="Type your answer here..."></textarea>
+            </div>
+            <div class="button-container">
+                <button class="print-btn" onclick="window.print()">🖨️ Print Portfolio</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
